@@ -1,6 +1,7 @@
 #import "AppDelegate.h"
 
 #import <React/RCTBundleURLProvider.h>
+#import <NaverThirdPartyLogin/NaverThirdPartyLoginConnection.h>
 
 @implementation AppDelegate
 
@@ -27,5 +28,27 @@
   return [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
 #endif
 }
+
+// NaverLogin URL 핸들링이 필요없을 때,
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+            options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+   return [[NaverThirdPartyLoginConnection getSharedInstance] application:app openURL:url options:options];
+}
+
+// NaverLogin URL 핸들링이 필요할 때,
+// - (BOOL)application:(UIApplication *)application
+//             openURL:(NSURL *)url
+//             options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+//   // naver
+//   if ([url.scheme isEqualToString:@"{{ CUSTOM URL SCHEME }}"]) {
+//     return [[NaverThirdPartyLoginConnection getSharedInstance] application:app openURL:url options:options];
+//   }
+  
+//   // kakao
+//   if([RNKakaoLogins isKakaoTalkLoginUrl:url]) {
+//     return [RNKakaoLogins handleOpenUrl: url];
+//   }
+// }
 
 @end
