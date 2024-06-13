@@ -31,7 +31,7 @@
 			<string>naver</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>https://cardforyou.app</string>
+				<string>cardforyouTest</string>
 			</array>
 		</dict>
 	</array>
