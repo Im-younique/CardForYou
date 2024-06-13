@@ -6,8 +6,8 @@ const Stack = createNativeStackNavigator();
 
 export default function AuthRoute() {
   return (
-    <>
+    <Stack.Navigator>
       <Stack.Screen name="AuthMain" component={AuthMain} />
-    </>
+    </Stack.Navigator>
   );
 }
